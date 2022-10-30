@@ -15,6 +15,8 @@ class CreateTrattesTable extends Migration
     {
         Schema::create('trattes', function (Blueprint $table) {
             $table->id();
+            $table->dateTime("orario_partenza");
+            $table->dateTime("orario_arrivo");
             $table->unsignedBigInteger("Aereoporto_partenza");
             $table->unsignedBigInteger("Aereoporto_arrivo");
             $table->unsignedBigInteger("Compagnia");

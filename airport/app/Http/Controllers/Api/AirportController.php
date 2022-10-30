@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Aereoporto;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AereoportoController extends Controller
+class AirportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +15,12 @@ class AereoportoController extends Controller
      */
     public function index()
     {
-        $aereoporti = Aereoporto::all();
-        return view('airplane.index', compact('aereoporti'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $airports = Aereoporto::all();
+        return response()->json([
+            'success' => true,
+            'result' => $airports
+        ]);
     }
 
     /**
@@ -42,21 +37,10 @@ class AereoportoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Aereoporto  $aereoporto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Aereoporto $aereoporto)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Aereoporto  $aereoporto
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Aereoporto $aereoporto)
+    public function show($id)
     {
         //
     }
@@ -65,10 +49,10 @@ class AereoportoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Aereoporto  $aereoporto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Aereoporto $aereoporto)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +60,10 @@ class AereoportoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Aereoporto  $aereoporto
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Aereoporto $aereoporto)
+    public function destroy($id)
     {
         //
     }

@@ -14,7 +14,8 @@ class CompagniaController extends Controller
      */
     public function index()
     {
-        //
+        $compagnie = Compagnia::all();
+        return view('compagnie.index', compact('compagnie'));
     }
 
     /**
