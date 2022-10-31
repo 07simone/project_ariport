@@ -17,10 +17,7 @@ class AirportController extends Controller
     {
 
         $airports = Aereoporto::all();
-        return response()->json([
-            'success' => true,
-            'result' => $airports
-        ]);
+        return response()->json($airports);
     }
 
     /**

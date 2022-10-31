@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/airports', "AereoportController@index")->name("airports.index");
+Route::get('/airports', "AereoportoController@index")->name("airports.index");
 Route::get('/compagnie', "CompagniaController@index")->name("compagnie.index");
 
 
