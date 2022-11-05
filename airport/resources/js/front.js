@@ -4,6 +4,7 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import App from "./views/App";
 import Airplanes from './pages/Airplanes'
+import Home from './pages/Home'
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
@@ -11,7 +12,7 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: Airplanes
+            component: Home
         }
     ],
 });
