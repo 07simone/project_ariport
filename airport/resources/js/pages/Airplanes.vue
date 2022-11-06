@@ -20,7 +20,7 @@ import aereo from "../components/Aereo";
             }
         },
         created() {
-            axios.get('/api/airport')
+            axios.get('/api/airport/')
                 .then(response => {
                     this.airports = response.data
                     console.log(this.airports)

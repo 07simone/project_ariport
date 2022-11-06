@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: "compagnie",
+    name: "compagnia",
     props:['compagnia']
 }
 </script>

@@ -6,7 +6,7 @@ use App\Compagnia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AereiController extends Controller
+class CompagniaController extends Controller
 {
     /**
      * Display a listing of the resource.

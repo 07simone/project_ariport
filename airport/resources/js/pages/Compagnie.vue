@@ -2,17 +2,17 @@
 
     <div class="container">
         <div class="row">
-            <compagnie v-for="(compagnia,index) in compagnie" :key="index" :compagnia = "compagnia"/>
+            <compagnia v-for="(compagnia,index) in compagnie" :key="index" :compagnia = "compagnia"/>
         </div>
     </div>
 </template>
 
 <script>
-import compagnie from '../Components/Compagnie'
+import compagnia from '../Components/Compagnia'
 export default {
     name: "Compagnie",
     components: {
-        compagnie
+        compagnia
     },
 
     data(){
@@ -21,7 +21,7 @@ export default {
         };
     },
 
-    async created(){
+    created(){
     axios.get('/api/compagnia')
             .then(response => {
                 this.compagnie = response.data

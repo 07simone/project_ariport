@@ -45,9 +45,10 @@ class AereoportoController extends Controller
      * @param  \App\Aereoporto  $aereoporto
      * @return \Illuminate\Http\Response
      */
-    public function show(Aereoporto $aereoporto)
+    public function show(int $id)
     {
-        //
+        $aereoporto = Aereoporto::find($id);
+        return view('airplane.show', compact('aereoporto'));
     }
 
     /**

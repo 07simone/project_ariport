@@ -4,6 +4,7 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import App from "./views/App";
 import Airplanes from './pages/Airplanes'
+import Compagnie from './pages/Compagnie'
 import Home from './pages/Home'
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -13,6 +14,16 @@ const router = new VueRouter({
             path: '/',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/airport',
+            name: 'airplanes',
+            component: Airplanes
+        },
+        {
+            path: '/compagnia',
+            name: 'compagnie',
+            component: Compagnie
         }
     ],
 });
