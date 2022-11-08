@@ -12,6 +12,8 @@
         <div class="row">
             <div class="col-12" v-if="!trattes == '' ">
                 <Tratte v-for="(tratte,index) in trattes" :key="index" :tratte ="tratte" />
+               <!--  <compagnie v-for="(compagnie,index) in compagnies" :key="index" :compagnie="compagnie"/>
+                <aereo v-for="(aereo,index) in airports" :key="index" :aereo="aereo"/> -->
             </div>
 
 
@@ -33,18 +35,21 @@
 </template>
 
 <script>
-
-
+/* import aereo from '../components/aereo';
+import compagnia from '../components/compagnia'; */
 import Tratte from '../components/tratte'
 export default {
     name: "Home",
     components: {
-        Tratte
+        Tratte,
+        /* aereo,
+        compagnia */
     },
 
     data(){
         return {
-
+            compagnies:[],
+            airports:[],
             voloAndata: '',
             voloRitorno: '',
             trattes:[]
@@ -61,26 +66,29 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+            /*     axios.get('/api/compagnia')
+                    .then(response => {
+                        this.compagnies = response.data
+                        console.log(this.compagnies)
+                    })
+                    .catch((errore)=>{
+                        console.log(errore);
+                    })
+
+                    axios.get('/api/airport/')
+                        .then(response => {
+                            this.airports = response.data
+                            console.log(this.airports)
+                        })
+                        .catch((errore)=>{
+                            console.log(errore);
+                        }) */
         },
         }
 
-        /* axios.get('/api/compagnia')
-            .then(response => {
-                this.compagnie = response.data
-                console.log(this.compagnie)
-            })
-            .catch((errore)=>{
-                console.log(errore);
-            }) */
+        /*  */
 
-       /*  this.aereoporto = axios.get('/api/airport/')
-            .then(response => {
-                this.airports = response.data
-                console.log(this.airports)
-            })
-            .catch((errore)=>{
-                console.log(errore);
-            }) */
+       /*  this.aereoporto =  */
 
         }
 

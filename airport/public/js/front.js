@@ -1925,14 +1925,20 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_tratte__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/tratte */ "./resources/js/components/tratte.vue");
+/* import aereo from '../components/aereo';
+import compagnia from '../components/compagnia'; */
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   components: {
     Tratte: _components_tratte__WEBPACK_IMPORTED_MODULE_0__["default"]
+    /* aereo,
+    compagnia */
   },
   data: function data() {
     return {
+      compagnies: [],
+      airports: [],
       voloAndata: '',
       voloRitorno: '',
       trattes: []
@@ -1947,26 +1953,28 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+      /*     axios.get('/api/compagnia')
+              .then(response => {
+                  this.compagnies = response.data
+                  console.log(this.compagnies)
+              })
+              .catch((errore)=>{
+                  console.log(errore);
+              })
+               axios.get('/api/airport/')
+                  .then(response => {
+                      this.airports = response.data
+                      console.log(this.airports)
+                  })
+                  .catch((errore)=>{
+                      console.log(errore);
+                  }) */
     }
   }
 
-  /* axios.get('/api/compagnia')
-      .then(response => {
-          this.compagnie = response.data
-          console.log(this.compagnie)
-      })
-      .catch((errore)=>{
-          console.log(errore);
-      }) */
+  /*  */
 
-  /*  this.aereoporto = axios.get('/api/airport/')
-       .then(response => {
-           this.airports = response.data
-           console.log(this.airports)
-       })
-       .catch((errore)=>{
-           console.log(errore);
-       }) */
+  /*  this.aereoporto =  */
 });
 
 /* created(){

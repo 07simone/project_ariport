@@ -14,7 +14,7 @@ class TratteController extends Controller
         $aereoporto2 = Aereoporto::where('Nome_aereoporto', $voloRitorno)->first();
 
         /* print($aereoporto1); */
-        $tratte = Tratte::where('aereoporto_partenza', $aereoporto1->id)->where('aereoporto_arrivo', $aereoporto2->id)->get();
+        $tratte = Tratte::where('aereoporto_partenza', $aereoporto1->id )->where('aereoporto_arrivo', $aereoporto2->id )->get();
 
         return response()->json($tratte);
 
