@@ -1,27 +1,22 @@
 <template>
     <div class="container">
         <div class="row g-3">
-    <div class="col">
-        <input v-model="cercaVoli1" type="text" class="form-control" placeholder="Inserisci aereoporto di partenza" aria-label="First name">
-    </div>
-    <div class="col">
-        <input v-model="cercaVoli2" type="text" class="form-control" placeholder="Inserisci aereoporto di arrivo" aria-label="Last name">
-    </div>
-        <button @click="filterAirplaneCompany(cercaVoli1,cercaVoli2)" class="btn btn-outline-dark text-uppercase rounded-pill">Mostra voli</button>
-    </div>
-    <section>
-        <div class="row">
-            <div class="col-12">
-                <div v-for="(element,index) in compagnie" :key="index">
-                    <h1>
-                        {{element.Nome_compagnia}}
-                    </h1>
-                </div>
+            <div class="col">
+                <input v-model="voloAndata" type="text" class="form-control" placeholder="Inserisci aereoporto di partenza" aria-label="First name">
             </div>
+            <div class="col">
+                <input v-model="voloRitorno" type="text" class="form-control" placeholder="Inserisci aereoporto di arrivo" aria-label="Last name">
+            </div>
+                <a href="#" @click="getTratteSearch()" class="btn btn-outline-dark text-uppercase rounded-pill">Mostra voli</a>
         </div>
-    </section>
+        <div class="row">
+            <div class="col-12" v-if="!trattes == '' ">
+                <Tratte v-for="(tratte,index) in trattes" :key="index" :tratte ="tratte" />
+            </div>
 
-    <section>
+
+        </div>
+   <!--  <section>
         <div class="row">
             <div class="col-12">
                 <div v-for="(element,index) in airports" :key="index">
@@ -31,7 +26,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 </div>
 
@@ -40,49 +35,34 @@
 <script>
 
 
-
+import Tratte from '../components/tratte'
 export default {
     name: "Home",
     components: {
+        Tratte
     },
 
     data(){
         return {
-            aereoporto: null,
-            compagnia: null,
-            compagnie:[],
-            airports:[],
-            cercaVoli1: '',
-            cercaVoli2: '',
-            voliNotFound:[]
+
+            voloAndata: '',
+            voloRitorno: '',
+            trattes:[]
         };
     },
 
     methods: {
-        filterAirplaneCompany(cercaVoli1,cercaVoli2){
-            axios.get('/api/airport/')
+        getTratteSearch(){
+            axios.get('/api/tratte/search/'+ this.voloAndata +'/' + this.voloRitorno)
                 .then(response => {
-                    this.airports = response.data
-                    console.log(this.airports)
+                    this.trattes = response.data;
+                    console.log(this.trattes);
                 })
-                .catch((errore)=>{
-                    console.log(errore);
-                })
-
-            axios.get('/api/compagnia/')
-                .then(response => {
-                    this.compagnie = response.data
-
-                    console.log(this.compagnie)
-
-                })
-                .catch((errore)=>{
-                    console.log(errore);
-                })
-
-
+                .catch(error => {
+                    console.log(error);
+                });
         },
-
+        }
 
         /* axios.get('/api/compagnia')
             .then(response => {
@@ -102,11 +82,9 @@ export default {
                 console.log(errore);
             }) */
 
-        },
+        }
 
 
-
-    }
     /* created(){
         this.compagnia = axios.get('/api/compagnia')
             .then(response => {

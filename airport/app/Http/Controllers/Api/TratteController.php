@@ -7,9 +7,18 @@ use App\Aereoporto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AirportController extends Controller
+class TratteController extends Controller
 {
+    public function search($voloAndata, $voloRitorno){
+        $aereoporto1 = Aereoporto::where('Nome_aereoporto', $voloAndata)->first();
+        $aereoporto2 = Aereoporto::where('Nome_aereoporto', $voloRitorno)->first();
 
+        /* print($aereoporto1); */
+        $tratte = Tratte::where('aereoporto_partenza', $aereoporto1->id)->where('aereoporto_arrivo', $aereoporto2->id)->get();
+
+        return response()->json($tratte);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +26,8 @@ class AirportController extends Controller
      */
     public function index()
     {
-
-        $airports = Aereoporto::all();
-        return response()->json($airports);
+        $tratte = Tratte::all();
+        return response()->json($tratte);
     }
 
     /**

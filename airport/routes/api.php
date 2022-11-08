@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/airport','Api\AirportController@index')->name('api.airport.index');
 
 Route::get('/compagnia','Api\CompagniaController@index')->name('api.compagnia.index');
+
+Route::get('/tratte/search/{voloAndata}/{voloRitorno}', 'Api\TratteController@search')->name('api.tratte.search');
+
+Route::get('/tratte','Api\TratteController@index')->name('api.tratte.index');
