@@ -3,8 +3,8 @@
     <div class="container">
         <div class="card m-1">
             <div class="card-body">
-                <p class="card-text">{{tratte.orario_partenza}}</p>
-                <p class="card-text">{{tratte.orario_arrivo}}</p>
+                <p class="card-text">Orario e data di partenza:{{tratte.orario_partenza}}</p>
+                <p class="card-text">Orario e data di arrivo{{tratte.orario_arrivo}}</p>
                 <h5 class="card-title">{{tratte.Aereoporto_partenza}}</h5>
                 <p class="card-text">{{tratte.Aereoporto_arrivo}}</p>
                 <h5 class="card-title">{{tratte.Compagnia}}</h5>

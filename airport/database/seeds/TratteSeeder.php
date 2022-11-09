@@ -15,8 +15,8 @@ class TratteSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $aereoportos_id =  Aereoporto::pluck("id");
-        $compagnias_id = Compagnia::pluck("id");
+        $aereoportos_id =  Aereoporto::pluck("id")->toArray();
+        $compagnias_id = Compagnia::pluck("id")->toArray();
 
         for($i=0; $i < 10; $i++){
             $newTratta = new Tratte();

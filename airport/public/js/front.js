@@ -2036,9 +2036,9 @@ var render = function render() {
     staticClass: "card-body"
   }, [_c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.tratte.orario_partenza))]), _vm._v(" "), _c("p", {
+  }, [_vm._v("Orario e data di partenza:" + _vm._s(_vm.tratte.orario_partenza))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.tratte.orario_arrivo))]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("Orario e data di arrivo" + _vm._s(_vm.tratte.orario_arrivo))]), _vm._v(" "), _c("h5", {
     staticClass: "card-title"
   }, [_vm._v(_vm._s(_vm.tratte.Aereoporto_partenza))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"

@@ -10,14 +10,10 @@ use App\Http\Controllers\Controller;
 class TratteController extends Controller
 {
     public function search($voloAndata, $voloRitorno){
-        $aereoporto1 = Aereoporto::where('Nome_aereoporto', $voloAndata)->first();
-        $aereoporto2 = Aereoporto::where('Nome_aereoporto', $voloRitorno)->first();
-
-        /* print($aereoporto1); */
-        $tratte = Tratte::where('aereoporto_partenza', $aereoporto1->id )->where('aereoporto_arrivo', $aereoporto2->id )->get();
-
+        $aereoporto1 = Aereoporto::where('Nome_aereoporto','LIKE','%'. $voloAndata. '%')->first();
+        $aereoporto2 = Aereoporto::where('Nome_aereoporto', 'LIKE','%'. $voloRitorno . '%')->first();
+        $tratte = Tratte::where('aereoporto_partenza', $aereoporto1->id )->where('aereoporto_arrivo', $aereoporto2->id )->get()->toArray();
         return response()->json($tratte);
-
     }
     /**
      * Display a listing of the resource.
@@ -27,6 +23,7 @@ class TratteController extends Controller
     public function index()
     {
         $tratte = Tratte::all();
+
         return response()->json($tratte);
     }
 
